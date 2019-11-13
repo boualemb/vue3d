@@ -49,7 +49,7 @@ function loadFile( file,FromLinks ) {
 
 }
 function selectFile( file ) {
-    console.log(links)
+
     if (links!== null )
     {if ( selected !== null ) links[ selected ].classList.remove( 'selected' );
     links[ file ].classList.add( 'selected' );}
@@ -64,7 +64,7 @@ if ( window.location.hash !== '' && links[ window.location.hash.substring( 1 ) ]
 }
 else 
 {
-    console.log('load accueil');
+
     loadFile('accueil', false);
 }
 
