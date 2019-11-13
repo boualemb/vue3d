@@ -7,7 +7,7 @@ function init() {
     camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
     camera.position.z = 50;
     camera.position.x = 50;
-    var canvs= document.getElementByTagName('canvas');
+
     scene = new THREE.Scene();
     renderer = new THREE.WebGLRenderer( { antialias: true } );
     controls = new THREE.OrbitControls( camera, renderer.domElement );
