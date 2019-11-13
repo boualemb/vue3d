@@ -1,24 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Porte Capitonnée</title>
-        <link rel="stylesheet" type="text/css" href="./style/style.css">
-        <meta charset="utf-8">
-        <style>
-            h1{
-                color: antiquewhite;
-            }
-        </style>
-    </head>
-    <body>
-            <div id="info">Porte Capitonnée</div>
-            <script src="./js/three.min.js"></script>
-            <script src="./js/OrbitControls.js"></script>
-            <script src="./js/GLTFLoader.js"></script>
-            <script>
-                var model = './models/Porte_Capitonnee/porte.gltf'
-            </script>
-            <script src="./js/app.js"></script>
 
-    </body>
+<head>
+    <title>Porte Capitonnée</title>
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <meta charset="utf-8">
+    <style>
+        h1 {
+            color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="info">
+        <h2>Porte Capitonnée</h2>
+        <p>Cette porte est caractériser par son motif qui se répète.<br>Pour modéliser cette forme il suffit : </p>
+        <ul>
+            <li> modéliser le motif de base.</li>
+            <li> répéter sur les deux axes pour former la façade de la porte. </li>
+        </ul>
+    </div>
+    <script src="./js/three.min.js"></script>
+    <script src="./js/OrbitControls.js"></script>
+    <script src="./js/GLTFLoader.js"></script>
+    <script>
+        var model = './models/Porte_Capitonnee/porte.gltf'
+    </script>
+    <script src="./js/app.js"></script>
+
+</body>
+
 </html>

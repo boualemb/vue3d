@@ -7,10 +7,10 @@ function init() {
     camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
     camera.position.z = 50;
     camera.position.x = 50;
-    
+    var canvs= document.getElementByTagName('canvas');
     scene = new THREE.Scene();
     renderer = new THREE.WebGLRenderer( { antialias: true } );
-    controls = new THREE.OrbitControls( camera, renderer.domElement );
+    controls = new THREE.OrbitControls( camera, canvs );
     const ambientLight = new THREE.AmbientLight( 0x404040 );
     mainLight = new THREE.DirectionalLight( 0xc4c4c4,1 );
     mainLight.position.set( 10, 10, 10 );
