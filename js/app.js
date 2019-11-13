@@ -1,5 +1,5 @@
 var camera, scene, renderer, controls,loader;
-var mesh;
+var mesh, mainLight;
 init();
 animate();
 
@@ -11,8 +11,13 @@ function init() {
     scene = new THREE.Scene();
     renderer = new THREE.WebGLRenderer( { antialias: true } );
     controls = new THREE.OrbitControls( camera, renderer.domElement );
-    const ambientLight = new THREE.HemisphereLight( 0xddeeff, 0x0f0e0d, 0.8 );
-    scene.add( ambientLight );
+    const ambientLight = new THREE.AmbientLight( 0x404040 );
+    mainLight = new THREE.DirectionalLight( 0xc4c4c4,1 );
+    mainLight.position.set( 10, 10, 10 );
+
+    
+    scene.add( ambientLight,mainLight );
+
     loadModel();
     
     controls.update();
@@ -37,13 +42,14 @@ function animate() {
     requestAnimationFrame( animate );
      //mesh.rotation.x += 0.005;
      //mesh.rotation.y += 0.01;
+     mainLight.position.set( camera.position.x, camera.position.y, camera.position.z );
     controls.update();
     renderer.render( scene, camera );
 }
 
 function frameArea(factorSizeToFitOnScreen, camera) {
 
-    const box = new THREE.Box3().setFromObject(scene);
+    const box = new THREE.Box3().setFromObject(mesh);
     const boxSize = box.getSize(new THREE.Vector3()).length();
 
     const boxCenter = box.getCenter(new THREE.Vector3());
