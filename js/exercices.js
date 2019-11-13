@@ -4,6 +4,6 @@ var exercices = {
         "Modelisation_porte_Capitonne",
         "Modelisation_Table",
         "Modelisation_Chaise",
-        "Modelisation_Bureau"
+        "Modelisation_Bureau_L"
     ]
 }
