@@ -37,7 +37,7 @@ canvas {
 	right: 5px;
 	border-radius: 10px;
 	background-color: rgba(226, 226, 226, 0.623);
-	color: rgb(255, 255, 255);
+	color: black;
 	box-sizing: border-box;
 	text-align: left;
 	-moz-user-select: none;
