@@ -1,5 +1,6 @@
 var exercices = {
     "Modélisation":[
+        "Modelisation_Escalier",
         "Modelisation_Trophy",
         "Modelisation_Table",
         "Modelisation_Chaise_et_table",
