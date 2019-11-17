@@ -17,7 +17,11 @@
         <h2>Table</h2>
         <p>Utilisez les splines pour modéliser les éléments de cette table, ensuite utilisez la modélisation polygonale
             pour arrondir les coins</p>
+        <form>
+            <input type="checkbox" id="isWireframe" onclick="toggleWireframe()"> Mode Filaire
+        </form>
     </div>
+    <div id="loader"></div>
     <script src="./js/three.min.js"></script>
     <script src="./js/OrbitControls.js"></script>
     <script src="./js/GLTFLoader.js"></script>

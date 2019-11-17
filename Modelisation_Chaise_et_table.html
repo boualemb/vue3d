@@ -16,7 +16,11 @@
     <div id="info">
         <h2>Chaise et Table</h2>
         <p>Utilisez les splines pour modéliser la chaise et la table.</p>
+        <form>
+            <input type="checkbox" id="isWireframe" onclick="toggleWireframe()"> Mode Filaire
+        </form>
     </div>
+    <div id="loader"></div>
     <script src="./js/three.min.js"></script>
     <script src="./js/OrbitControls.js"></script>
     <script src="./js/GLTFLoader.js"></script>

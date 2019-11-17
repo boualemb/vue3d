@@ -20,7 +20,11 @@
             <li> Utilisez des splines pour modéliser le plan du bureau, les supports</li>
             <li> Utilisez la moélisation polygonale pour modéliser les tiroires, le voile de fond </li>
         </ul>
+        <form> 
+            <input type="checkbox" id="isWireframe" onclick="toggleWireframe()"> Mode Filaire 
+        </form>
     </div>
+    <div id="loader"></div>
     <script src="./js/three.min.js"></script>
     <script src="./js/OrbitControls.js"></script>
     <script src="./js/GLTFLoader.js"></script>

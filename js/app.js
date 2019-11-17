@@ -1,5 +1,6 @@
 var camera, scene, renderer, controls,loader;
 var mesh, mainLight;
+var loadManager;
 init();
 animate();
 
@@ -7,6 +8,7 @@ function init() {
     camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
     camera.position.z = 50;
     camera.position.x = 50;
+    loadManager = new THREE.LoadingManager();
 
     scene = new THREE.Scene();
     renderer = new THREE.WebGLRenderer( { antialias: true } );
@@ -18,6 +20,25 @@ function init() {
     
     scene.add( ambientLight,mainLight );
 
+    loadManager.onStart = function ( url, itemsLoaded, itemsTotal ){
+
+        document.getElementById("loader").style.display = "block";
+        console.log( 'Start Loading file: ' + url);
+
+    }
+    loadManager.onLoad = function(){
+        document.getElementById("loader").style.display = "none";
+        console.log( 'Load Complete ');
+    }
+    loadManager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+        document.getElementById("loader").style.display = "block";
+        console.log( 'Loading file: ' + url);
+    }
+    loadManager.onError = function ( url ) {
+
+        console.log( 'There was an error loading ' + url );
+    
+    };
     loadModel();
     
     controls.update();
@@ -37,7 +58,16 @@ function onWindowResize() {
     camera.updateProjectionMatrix();
     renderer.setSize( window.innerWidth, window.innerHeight );
 }
-
+function toggleWireframe()
+{
+    var checkBox = document.getElementById('isWireframe');
+    scene.traverse(object =>
+        {
+            if (object instanceof THREE.Mesh)
+                if(object.material instanceof THREE.MeshStandardMaterial) object.material.wireframe = checkBox.checked ;
+        }
+        );
+}
 function animate() {
     requestAnimationFrame( animate );
      //mesh.rotation.x += 0.005;
@@ -88,7 +118,7 @@ function frameArea(factorSizeToFitOnScreen, camera) {
   }
 function loadModel()
 {
-    loader = new THREE.GLTFLoader();
+    loader = new THREE.GLTFLoader(loadManager);
     loader.load(model,
         function ( gltf ) {
             mesh = gltf.scene; // THREE.Scene
