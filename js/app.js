@@ -111,7 +111,7 @@ function frameArea(factorSizeToFitOnScreen, camera) {
    // camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
     controls.target.set(boxCenter.x, boxCenter.y, boxCenter.z);
     //console.log(camera.position, ',  ', boxCenter);
-    controls.minDistance = 0.8 * boxSize;
+    controls.minDistance = 0.5 * boxSize;
     controls.maxDistance = 5.0 * boxSize;
 
 
